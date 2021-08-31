@@ -1,0 +1,9 @@
+.imageClass{
+    width: 200px;
+    height: auto;
+    border-radius: 5%;
+}
+
+.description{
+    margin-top: 20px;
+}

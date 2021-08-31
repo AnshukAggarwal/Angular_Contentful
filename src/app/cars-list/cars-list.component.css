@@ -1,0 +1,10 @@
+.imageClass{
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5%;
+}
+
+.data{
+    margin-top: 30px;
+}
