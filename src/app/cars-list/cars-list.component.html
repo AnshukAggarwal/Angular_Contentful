@@ -1,56 +1,68 @@
 <a class="btn btn-primary btn-lg" routerLink="/" role="button">Back to Homepage</a>
-<div class="panel panel-primary data" *ngFor="let car of cars">
-  <div class="panel-heading">
-    <h3 class="panel-title">{{ car.fields.make }} {{car.fields.model}}</h3>
-  </div>
-  <div class="panel-body">
-    <div class="col-xs-10">
-      <div class="row">
-        <div class="col-xs-4">
-          <img 
-            [src]="car.fields.image.fields.file.url" 
-            class="imageClass"
-            [routerLink]="['/cars',car.sys.id]"/>
-        </div>
-        <div class="col-xs-8">
-          <div class="row">
-            <div class="col-xs-6">
-              Make
-            </div>
-            <div class="col-xs-6">
-              : {{ car.fields.make }}
-            </div>
-          </div>
-          <div class="row flex">
-            <div class="col-xs-6">
-              Model
-            </div>
-            <div class="col-xs-6">
-              : {{ car.fields.model }}
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
-              Year
-            </div>
-            <div class="col-xs-6">
-              : {{ car.fields.year }}
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
-              Price (CAD)
-            </div>
-            <div class="col-xs-6">
-              : {{ car.fields.price }}
-            </div>
-          </div>
+<div class="form-group">
+  <input 
+  type="text" 
+  class="form-control" 
+  [(ngModel)]="queryString"
+  />
+  <button 
+  type="button" 
+  class="btn btn-primary"
+  (click)="filterCars()">Search</button>
+</div>
 
+  <div class="panel panel-primary data" *ngFor="let car of cars">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{ car.fields.make }} {{car.fields.model}}</h3>
+    </div>
+    <div class="panel-body">
+      <div class="col-xs-10">
+        <div class="row">
+          <div class="col-xs-4">
+            <img 
+              [src]="car.fields.image.fields.file.url" 
+              class="imageClass"
+              [routerLink]="['/cars',car.sys.id]"/>
+          </div>
+          <div class="col-xs-8">
+            <div class="row">
+              <div class="col-xs-6">
+                Make
+              </div>
+              <div class="col-xs-6">
+                : {{ car.fields.make }}
+              </div>
+            </div>
+            <div class="row flex">
+              <div class="col-xs-6">
+                Model
+              </div>
+              <div class="col-xs-6">
+                : {{ car.fields.model }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                Year
+              </div>
+              <div class="col-xs-6">
+                : {{ car.fields.year }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                Price (CAD)
+              </div>
+              <div class="col-xs-6">
+                : {{ car.fields.price }}
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
+    <div class="panel-footer">
+      <button class="btn btn-info" [routerLink]="['/cars',car.sys.id]">View details for {{ car.fields.make }} {{car.fields.model}}</button>
+    </div>
   </div>
-  <div class="panel-footer">
-    <button class="btn btn-info" [routerLink]="['/cars',car.sys.id]">View details for {{ car.fields.make }} {{car.fields.model}}</button>
-  </div>
-</div>

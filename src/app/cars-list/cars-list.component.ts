@@ -9,6 +9,7 @@ import { ContentfulService } from '../contentful.service';
 })
 export class CarsListComponent implements OnInit {
   cars: Entry<any>[]=[];
+  queryString:string="";
 
   constructor(private contentfulService: ContentfulService){}
 
@@ -19,5 +20,13 @@ export class CarsListComponent implements OnInit {
       this.cars=data
     })
   }
+
+  filterCars(){
+    if(this.queryString===""){
+      this.ngOnInit();
+    }
+    this.cars= this.cars.filter(car=> car.fields.model.toLowerCase() === this.queryString.toLowerCase() || car.fields.make.toLowerCase() === this.queryString.toLowerCase())
+  }
+  
 
 }
