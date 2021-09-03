@@ -54,7 +54,8 @@
     </div>
     <div class="panel-footer">
       <button class="btn btn-primary" [routerLink]="['/cars']">Back to List</button>
-      <a class="btn btn-primary pull-right" (click)="getNextCar()">View next</a>
+      <button class="btn btn-primary pull-right" (click)="getNextCar()" [disabled]="message">View next</button>
     </div>
+    <div *ngIf="message">{{message}}</div>
   </div>
 

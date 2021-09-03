@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { createClient, Entry } from 'contentful';
 import { environment } from "../environments/environment"
 
@@ -11,6 +11,8 @@ export class ContentfulService {
     space: environment.CONFIG.space,
     accessToken: environment.CONFIG.accessToken
   });
+
+  errorMessage = new EventEmitter<string>()
 
   constructor() { }
 
@@ -42,10 +44,11 @@ export class ContentfulService {
   async getNextCar(index){
     const myArray= await this.getCars()
     if(index=== myArray.length-1){
+      //this.errorMessage.emit('You have reached the last car. Kindly click on Back to List')
       const item= myArray[0]
-    //console.log(item.sys.id);
-    const res= await this.getCarByID(item.sys.id)
-    return res;
+      console.log(item.sys.id);
+      const res= await this.getCarByID(item.sys.id)
+      return res;
     }else{
     const item= myArray[index+1]
     const res= await this.getCarByID(item.sys.id)

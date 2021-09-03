@@ -13,6 +13,7 @@ export class CarDetailComponent implements OnInit {
   id:string;
   car:Entry<any>;
   nextCar:Entry<any>;
+  message:string
 
   // constructor(private route:ActivatedRoute) { 
   //   this.currentCardId=this.route.snapshot.pa
@@ -35,6 +36,8 @@ export class CarDetailComponent implements OnInit {
   }
 
   getNextCar(){
+    // this.contentfulService.errorMessage
+    // .subscribe(message=>this.message=message)
     this.contentfulService.getIndexOfCurrentCar(this.id)
     .then(data=>{
       //console.log(data)

@@ -16,7 +16,7 @@ export class CarsListComponent implements OnInit {
   ngOnInit(){
     this.contentfulService.getCars()
     .then(data=>{
-      //console.log(data)
+      console.log(data)
       this.cars=data
     })
   }
