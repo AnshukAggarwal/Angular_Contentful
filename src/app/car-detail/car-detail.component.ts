@@ -23,6 +23,8 @@ export class CarDetailComponent implements OnInit {
     private router:Router){}
 
   ngOnInit(): void {
+    this.message= this.route.snapshot.data['message'];
+    console.log(this.message)
     // console.log(this.currentCar.sys.id)
     this.route.params
     .subscribe(params=>this.id=params['id'])

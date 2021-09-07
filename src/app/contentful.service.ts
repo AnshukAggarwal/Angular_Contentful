@@ -46,7 +46,7 @@ export class ContentfulService {
     if(index=== myArray.length-1){
       //this.errorMessage.emit('You have reached the last car. Kindly click on Back to List')
       const item= myArray[0]
-      console.log(item.sys.id);
+      //console.log(item.sys.id);
       const res= await this.getCarByID(item.sys.id)
       return res;
     }else{
